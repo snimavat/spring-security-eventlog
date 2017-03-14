@@ -1,28 +1,35 @@
 package ca.redtoad.eventlog
 
+import grails.test.mixin.integration.Integration
+import grails.transaction.Rollback
 import org.junit.Test
 import org.springframework.security.authentication.TestingAuthenticationToken
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.web.authentication.switchuser.AuthenticationSwitchUserEvent
+import spock.lang.Specification
 
-class SpringSecurityEventLoggerTests {
+@Integration
+@Rollback
+class SpringSecurityEventLoggerTests extends Specification {
 
-    def logger = new SpringSecurityEventLogger()
+    SpringSecurityEventLogger logger = new SpringSecurityEventLogger()
 
-    @Test
+
     void testLogAuthenticationEventWithNullAuthentication() {
+        when:
         logger.logAuthenticationEvent("event", null, "127.0.0.1", null)
 
-        assert SpringSecurityEvent.count() == 1
+        then:
+        SpringSecurityEvent.count() == 1
         def event = SpringSecurityEvent.list().first()
-        assert event.username == null
-        assert event.sessionId == null
-        assert event.eventName == "event"
-        assert event.switchedUsername == null
-        assert event.remoteAddress == "127.0.0.1"
+        event.username == null
+        event.sessionId == null
+        event.eventName == "event"
+        event.switchedUsername == null
+        event.remoteAddress == "127.0.0.1"
     }
 
-    @Test
+
     void testLogAuthenticationEventWithStringPrincipal() {
         def authentication = new TestingAuthenticationToken("username", [])
         logger.logAuthenticationEvent("event", authentication, "127.0.0.1", null)
@@ -36,23 +43,25 @@ class SpringSecurityEventLoggerTests {
         assert event.remoteAddress == "127.0.0.1"
     }
 
-    @Test
+
     void testLogAuthenticationEventWithUserDetailsPrincipal() {
+        when:
         def principal = { -> "username" } as UserDetails
         def authentication = new TestingAuthenticationToken(principal, [])
         logger.logAuthenticationEvent("event", authentication, "127.0.0.1", null)
 
-        assert SpringSecurityEvent.count() == 1
+        then:
+        SpringSecurityEvent.count() == 1
         def event = SpringSecurityEvent.list().first()
-        assert event.username == "username"
-        assert event.sessionId == null
-        assert event.eventName == "event"
-        assert event.switchedUsername == null
-        assert event.remoteAddress == "127.0.0.1"
+        event.username == "username"
+        event.sessionId == null
+        event.eventName == "event"
+        event.switchedUsername == null
+        event.remoteAddress == "127.0.0.1"
     }
 
-    @Test
     void testLogAuthenticationSwitchUserEvent() {
+        when:
         def principal = { -> "username" } as UserDetails
         def authentication = new TestingAuthenticationToken(principal, [])
         authentication.details = [remoteAddress: '127.0.0.1', sessionId: 'mockSessionId']
@@ -60,12 +69,13 @@ class SpringSecurityEventLoggerTests {
 
         logger.onApplicationEvent(new AuthenticationSwitchUserEvent(authentication, targetUser))
 
-        assert SpringSecurityEvent.count() == 1
+        then:
+        SpringSecurityEvent.count() == 1
         def event = SpringSecurityEvent.list().first()
-        assert event.username == "username"
-        assert event.sessionId == "mockSessionId"
-        assert event.eventName == "AuthenticationSwitchUserEvent"
-        assert event.switchedUsername == "switchedUsername"
-        assert event.remoteAddress == "127.0.0.1"
+        event.username == "username"
+        event.sessionId == "mockSessionId"
+        event.eventName == "AuthenticationSwitchUserEvent"
+        event.switchedUsername == "switchedUsername"
+        event.remoteAddress == "127.0.0.1"
     }
 }
