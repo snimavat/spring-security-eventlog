@@ -8,7 +8,7 @@ import org.springframework.security.authentication.event.AuthenticationFailureBa
 
 class SpringSecurityEventlogGrailsPlugin extends Plugin {
 
-    def version = "0.5"
+    def version = "3.0.1"
     def grailsVersion = "3.2 > *"
     def loadBefore = ['springSecurityRest']
     def loadAfter = ['springSecurityCore']
