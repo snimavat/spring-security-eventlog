@@ -2,7 +2,7 @@
 
 set -e
 
-echo "### Running plugin tests ###"
+echo "### Running tests ###"
 (./gradlew clean check assemble --stacktrace)
 
 
