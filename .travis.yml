@@ -4,19 +4,16 @@ jdk:
 sudo: false
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
-  - $HOME/.m2/
-
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.m2/"
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
 before_script:
 - rm -rf ./build
-
 script: "./travis-build.sh"
 env:
   global:
-  - secure: AASox/X03PcBPKiac0NK6gkD6N8ZiRsMiD97awBoHFhZZMVM7Nn5DBnC1m5Ut4UepG/SK3jxoR3jwVqk5hEvveWIzHEuvA4L0wMTXun5596GuVZv+sjgwu+cMZbyJGB5HGa3cGHrlrKwnj1MIgHxEULooB7U8Uka3OrwXOznlz4=
-  - secure: UuLQ16UZJeqqgH2QQ0Hgmj8YmqAYllnqcd7nVVb6VTWggkp9i0AMl0bjn1UqxmkPo77PYkGMX3pgl3cWSnpFKhVIZ2WbRzV+lgK1A0v1w2NGkk0Cf4gU7b6/S0MPYj/C4vDC2UgWFybqsth6F4uvrUJXpehUS2TODyuiU2oJyjY=
+  - secure: cG8dPPmWF7FIP8lrxpOVNiXx5YvZwuPZ5a2UHcKXjEf6sFhOJOjKShd+3jJNAQt1WrvBPlTrJXkzbdH3kQzSZuJhL/QlPd3A3zGFJaHJ07G87NvyBlthpkYqV/45MnJvBEF9g5GqAbPW+N7iN/25RC9hanlgQrgmhu2Do245QoTy/5AfUQJCK3FMyQ10amKrB8h9RWXjeQgxoh2PXw+pHkqBl2kq446ULGIMV+Gqd3FVYfO2yaZTm2zUfRMxSvb8XZKdLirzmPPsOMUnzxXtmLytpbchLpSoe9BOUEK3t6vh0gu5T3/NA7+8jSrD/wg4KxyJgrVWNrcpnzA6qrOq1wB+5lT6STH4mbmXdT4TUAHDsXoXVxZvTf7M0uhR62P7YjL9yg/AzItTDftwmFGl3KKCG4/8PyfMgQsTt8kj2i8U3moUS0hmXqFNKapKR4vyOAHEFuWzvaAp8HtP/UEWr/1iBY2cHVpllC5rMp7dWSb8pmMViQyEtp9YsNTqCWnOiTs9qbcDIvH9lJvI+poNbxNzFV+sh/5FNiQnI8iLq+C5hQ4VnMxlOYDGT7QB8kUaefAbIBRBO70PgkpIgVhM4Ejy9Pml47MyckxonWmveTTThMYNEbdoraHrQpSrakRv1HNi8NOGjqs7Xe/e7aho6xVE7bN3Cbz67ICJT+AREu0=
+  - secure: QsISbGdAjrClcY1X437HeDvnnYNDoivBxILqjAor4d3PCsWA3B7gS4FOpjZ/ceEPby+afBFQJm3Ulyq39JRwpCMsDfCRzKgPMybD75G1ERSeRs1K9wIjT7sqqpPWGXCPC2jrUo0iTvjXagTxuphWYlFs9NqS4sJSA0QMi6XAVtrCUKbtYbNo/1fR2fPnuzB0/XAg2hCh8bTe+24KOM0yrUiZPd5LncqrjInsQYCkR4mnT1SP1WPB9r0mRqy80GRwIoO3qsrPLnEPLmdTamVbZFldB8CC6WfYroNJEaJ60ZS5gyihuqSDijF8RGMz/zGO+3wcY8/atVWWBbn6KdR+cfC5r8ItM/7niWJ6BVUW8cze/6AH2KQ8DOlGj053Zss5Vjncf9PgrRdCxX0hKyx4MrWDIpagz0J/7cgMUSUYu0laSUrA2djnyKhs5/bMMObFm9dg8gzaSlDh0lG63QNuzFuqsRLgccrxYkCVMaa2ZtOY3kuw42qP4JYb2plHf2OZM2691/9mlwSsvqMg2c223kIQ7+1TaFMAuk1FOla0Z1dKqq2KaIX/6cAI1i1AqgGV6eD/NUMQmX0E6E6UDao/g1xc2T2gk/NTTaYAjcEnUmUWErTViTDIMgnvAg4MjK+pDOmzNTtymcoV2FjdCnWwBqzrmsFPp9SCZsfCqnW11vc=
