@@ -1,5 +1,7 @@
 package ca.redtoad.eventlog
 
+import groovy.util.logging.Slf4j
+
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -9,6 +11,7 @@ import org.springframework.security.core.Authentication
 import org.springframework.security.web.authentication.logout.LogoutHandler
 import org.springframework.security.web.authentication.switchuser.AuthenticationSwitchUserEvent
 
+@Slf4j
 class SpringSecurityEventLogger implements ApplicationListener<AbstractAuthenticationEvent>, LogoutHandler {
 
     void logAuthenticationEvent(String eventName, Authentication authentication, String remoteAddress, String switchedUsername) {

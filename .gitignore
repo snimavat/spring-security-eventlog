@@ -4,3 +4,8 @@ grails-spring-security-eventlog-*.zip
 grails-spring-security-eventlog-*.zip.sha1
 plugin.xml
 web-app
+.gradle/*
+build/*
+.idea/*
+*.ipr
+*.iws
