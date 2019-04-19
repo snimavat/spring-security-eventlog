@@ -1,5 +1,8 @@
 package ca.redtoad.eventlog
 
+import grails.compiler.GrailsCompileStatic
+
+@GrailsCompileStatic
 class SpringSecurityEvent {
 
     String username

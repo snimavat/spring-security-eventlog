@@ -1,7 +1,8 @@
 Spring Security Eventlog Plugin
 ===============================
 
-[![Build Status](https://travis-ci.org/snimavat/spring-security-eventlog.png?branch=master)](https://travis-ci.org/snimavat/spring-security-eventlog)
+![CircleCI](https://img.shields.io/circleci/project/github/yakworks/spring-security-eventlog.svg?longCache=true&style=for-the-badge)
+
 
 This plugin creates a simple log of spring security events.  Each time
 a user logs in or logs out, a log entry will created, storing the
