@@ -1,8 +1,7 @@
 package ca.redtoad.eventlog
 
-import grails.test.mixin.integration.Integration
-import grails.transaction.Rollback
-import org.junit.Test
+import grails.gorm.transactions.Rollback
+import grails.testing.mixin.integration.Integration
 import org.springframework.security.authentication.TestingAuthenticationToken
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.web.authentication.switchuser.AuthenticationSwitchUserEvent

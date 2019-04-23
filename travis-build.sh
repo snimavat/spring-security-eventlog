@@ -6,7 +6,7 @@ echo "### Running tests ###"
 (./gradlew clean check assemble --stacktrace)
 
 
-if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_REPO_SLUG == "snimavat/spring-security-eventlog" && $TRAVIS_PULL_REQUEST == 'false' ]]; then
+if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_REPO_SLUG == "yakworks/spring-security-eventlog" && $TRAVIS_PULL_REQUEST == 'false' ]]; then
 	echo "### publishing plugin to grails central"
 	(./gradlew bintrayUpload)
 
