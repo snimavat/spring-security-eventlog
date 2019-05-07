@@ -49,16 +49,11 @@ dependencies {
 
   compile 'org.grails.plugins:spring-security-core:3.2.0'
 
-  //testCompile "org.grails.plugins:geb"
-  //testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
-  //testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 }
 
 ext.codenarcRuleset = '''
-  getRule('LineLength').enabled = false
   getRule('CyclomaticComplexity').enabled = false
   getRule('NoWildcardImports').enabled = false
-  //getRule('Println').enabled = false
 '''
 
 //main codenarc block is setup in yakworks.defaults
