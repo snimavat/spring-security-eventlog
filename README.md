@@ -1,7 +1,22 @@
+[![CircleCI](https://img.shields.io/circleci/project/github/yakworks/spring-security-eventlog/master.svg?longCache=true&style=for-the-badge&logo=circleci)](https://circleci.com/gh/yakworks/view-tools)
+[![9ci](https://img.shields.io/badge/BUILT%20BY-9ci%20Inc-blue.svg?longCache=true&style=for-the-badge)](http://9ci.com)
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" height="28">
+[![forthebadge](https://forthebadge.com/images/badges/made-with-groovy.svg)](https://forthebadge.com)
+<img src="https://forthebadge.com/images/badges/gluten-free.svg" height="28">
+[![forthebadge](https://forthebadge.com/images/badges/approved-by-george-costanza.svg)](https://forthebadge.com)
+
+
 Spring Security Eventlog Plugin
 ===============================
 
-![CircleCI](https://img.shields.io/circleci/project/github/yakworks/spring-security-eventlog.svg?longCache=true&style=for-the-badge)
+Installation
+-----------
+
+```groovy
+
+compile "org.grails.plugins.spring-security-eventlog:3.0.3"
+
+```
 
 
 This plugin creates a simple log of spring security events.  Each time
