@@ -1,10 +1,14 @@
+/*
+* Copyright 2019 Yak.Works - Licensed under the Apache License, Version 2.0 (the "License")
+* You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+*/
 package ca.redtoad.eventlog
-
-import groovy.transform.CompileDynamic
-import groovy.util.logging.Slf4j
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+
+import groovy.transform.CompileDynamic
+import groovy.util.logging.Slf4j
 
 import org.springframework.context.ApplicationListener
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent
@@ -16,6 +20,7 @@ import org.springframework.security.web.authentication.switchuser.Authentication
 @CompileDynamic
 class SpringSecurityEventLogger implements ApplicationListener<AbstractAuthenticationEvent>, LogoutHandler {
 
+    @SuppressWarnings(['CatchRuntimeException'])
     void logAuthenticationEvent(String eventName, Authentication authentication, String remoteAddress, String switchedUsername) {
         try {
             def username = authentication?.principal?.hasProperty('username')?.getProperty(authentication?.principal) ?: authentication?.principal
